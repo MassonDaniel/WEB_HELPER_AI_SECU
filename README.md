@@ -2,6 +2,8 @@
 
 https://easy-security-scribe.lovable.app
 
+https://www.wpbeginner.com/fr/
+
 A web application that analyzes the security of a website (HTTP headers, cookies, exposed sensitive files, detected technologies and related CVEs), with an AI-generated summary report via the Gemini API.
 
 This project runs entirely locally — no deployment required.
