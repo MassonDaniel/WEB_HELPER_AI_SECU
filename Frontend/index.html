@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit — Scanner de sécurité web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <span class="mark">◆</span>
+    <span class="brand">AUDIT<span class="brand-thin">/scan</span></span>
+    <span class="topbar-tag">rapport de sécurité web</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <p class="eyebrow">Instrument d'analyse</p>
+    <h1>Entrez une adresse. <br>Repartez avec un diagnostic.</h1>
+    <p class="hero-sub">En-têtes, cookies, fichiers exposés, technologies détectées — condensés en un score, avec les correctifs qui comptent.</p>
+
+    <form id="scan-form" class="scan-form" autocomplete="off">
+      <label for="url-input" class="sr-only">URL à analyser</label>
+      <input
+        id="url-input"
+        type="text"
+        placeholder="https://exemple.com"
+        required
+      >
+      <button type="submit" id="scan-btn">Lancer l'analyse</button>
+    </form>
+
+    <p id="form-error" class="form-error" hidden></p>
+  </section>
+
+  <section id="loading-state" class="loading-state" hidden>
+    <div class="dial dial-pending" aria-hidden="true">
+      <div class="dial-ring"></div>
+    </div>
+    <p id="loading-text">Connexion à la cible…</p>
+  </section>
+
+  <section id="results" class="results" hidden>
+
+    <div class="score-panel">
+      <div class="dial-wrap">
+        <svg id="dial" viewBox="0 0 200 120" class="dial-svg" aria-hidden="true">
+          <path d="M 20 110 A 80 80 0 0 1 180 110" class="dial-track"/>
+          <path id="dial-fill" d="M 20 110 A 80 80 0 0 1 180 110" class="dial-fill"/>
+        </svg>
+        <div class="dial-readout">
+          <span id="score-value">–</span>
+          <span id="score-grade" class="grade-chip">–</span>
+        </div>
+      </div>
+      <div class="score-meta">
+        <p class="score-label">Score global</p>
+        <p id="score-url" class="score-url">—</p>
+        <p id="score-summary" class="score-summary"></p>
+      </div>
+    </div>
+
+    <div class="categories" id="categories"></div>
+
+    <div class="report-panel">
+      <div class="report-panel-head">
+        <h2>Rapport rédigé</h2>
+        <button id="report-btn" type="button">Générer le rapport IA</button>
+      </div>
+      <div id="report-body" class="report-body">
+        <p class="report-placeholder">Le rapport détaillé, en français clair, apparaîtra ici une fois généré.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="error-state" class="error-state" hidden>
+    <p class="error-title">Analyse impossible</p>
+    <p id="error-message" class="error-message"></p>
+  </section>
+
+</main>
+
+<footer class="footer wrap">
+  <p>Projet TP2 — Architecture. Analyse effectuée en direct, aucune donnée n'est conservée côté serveur.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
