@@ -1,5 +1,7 @@
 # TP2-ARCHI — Security Header Scanner
 
+https://easy-security-scribe.lovable.app
+
 A web application that analyzes the security of a website (HTTP headers, cookies, exposed sensitive files, detected technologies and related CVEs), with an AI-generated summary report via the Gemini API.
 
 This project runs entirely locally — no deployment required.
